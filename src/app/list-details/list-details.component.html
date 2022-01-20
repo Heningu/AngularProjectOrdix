@@ -1,10 +1,13 @@
-<div *ngIf="user">
+<div *ngIf="user" >      <!-- Nutzt den user der aus der URL gezogen wird | in der .ts Datei festgelegt -->
 
-  <h2 align="center">Details of < {{user.name}} ></h2>
+<div class="container">     <!-- Beginn der Tabelle | .container zentriert die Tabelle in der Mitte des Screens -->
 
-<div class="container">
+  <div class="typewriter">
+    <h1 align="center">Details of < {{user.name}} ></h1>
+  </div>
 
   <div class="table">
+
     <div class="table-header">
       <div class="hitem"><a id="id">ID</a></div>
       <div class="hitem"><a id="name">Name</a></div>
@@ -19,7 +22,7 @@
         <div class="table-data"><a>{{user.name}}</a></div>
         <div class="table-data"><a>{{user.status}}</a></div>
         <div class="table-data"><a>{{user.startd}}</a></div>
-        <div class="table-data"><a>{{user.startd}}</a></div>
+        <div class="table-data"><a>{{user.endd}}</a></div>
 
 
       </div>

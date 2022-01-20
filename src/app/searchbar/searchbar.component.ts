@@ -13,7 +13,7 @@ export class SearchbarComponent implements OnInit {
   users$!: Observable<Template[]>;
   private searchTerms = new Subject<string>();
   // Push a search term into the observable stream.
-  search(term: string): void {
+  search(term: string ): void {                         // | term: number ?? Wie suche ich nach einer ID in der Suchbar mit der search Funktion?
     this.searchTerms.next(term);
   }
 
@@ -23,13 +23,11 @@ export class SearchbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.users$ = this.searchTerms.pipe(
-      // wait 300ms after each keystroke before considering the term
-      debounceTime(300),
+      debounceTime(300),                        // wait 300ms
 
-      // ignore new term if same as previous term
-      distinctUntilChanged(),
 
-      // switch to new search observable each time the term changes
+      distinctUntilChanged(),                           // ignore new term if same as previous term
+
       switchMap((term: string) => this.heroService.searchUser(term)),
     );
   }

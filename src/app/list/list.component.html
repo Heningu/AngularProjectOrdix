@@ -1,12 +1,12 @@
 <div class="container">
-
+    <h1>List of all users</h1>
   <div class="table">
     <div class="table-header">
       <div class="hitem"><a id="id">ID</a></div>
       <div class="hitem"><a id="name">Name</a></div>
     </div>
     <div class="table-content">
-      <div class="table-row" *ngFor="let user of users">
+      <div class="table-row" *ngFor="let user of users">                               <!-- Loop alle user -->
         <div class="table-data"><a routerLink="/nr/{{user.id}}"> {{user.id}}</a></div>
         <div class="table-data"><a routerLink="/nr/{{user.name}}">{{user.name}}</a></div>
       </div>

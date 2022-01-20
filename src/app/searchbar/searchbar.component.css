@@ -1,4 +1,3 @@
-/* HeroSearch private styles */
 
 label {
   display: block;
@@ -7,7 +6,8 @@ label {
   margin-top: 1rem;
   margin-bottom: .5rem;
 }
-input {
+input {     /* Style für die Suchleiste */
+
   padding: .5rem;
   width: 100%;
   max-width: 600px;
@@ -29,7 +29,7 @@ input:focus {
 li {
   list-style-type: none;
 }
-.search-result li a {
+.search-result li a { /* Style für die Ergebnisse */
   border-bottom: 1px solid white;
   border-left: 1px solid white;
   border-right: 1px solid white;

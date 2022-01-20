@@ -10,7 +10,7 @@ import { UserService } from "../user.service";
   styleUrls: ['./list-details.component.css']
 })
 export class ListDetailsComponent implements OnInit {
-  user: Template | undefined;
+  user: Template | undefined;     // Kein Standart User
 
   constructor(
     private route: ActivatedRoute,
@@ -22,12 +22,13 @@ export class ListDetailsComponent implements OnInit {
     this.getUser();
   }
   getUser(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const id = Number(this.route.snapshot.paramMap.get('id'));      // Nutzt den User aus der "Route" (url)
+
     this.userService.getUser(id)
       .subscribe(user => this.user = user);
   }
 
-  goBack() {
+  /*goBack() {
     this.location.back();
   }
   save(): void {
@@ -35,5 +36,5 @@ export class ListDetailsComponent implements OnInit {
       this.userService.updateUser(this.user)
         .subscribe(() => this.goBack());
     }
-  }
+  }*/
 }

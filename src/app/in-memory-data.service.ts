@@ -8,19 +8,21 @@ import { Template} from "./template";
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const users = [
-      { id: 11, name: 'Dr Nice' },
-      { id: 12, name: 'Narco' },
-      { id: 13, name: 'Bombasto' },
-      { id: 14, name: 'Celeritas' },
-      { id: 15, name: 'Magneta' },
-      { id: 16, name: 'RubberMan' },
-      { id: 17, name: 'Dynama' },
-      { id: 18, name: 'Dr IQ' },
-      { id: 19, name: 'Magma' },
-      { id: 20, name: 'Tornado' }
+      { id: 11, name: 'Dr Nice', status: "X", startd: "2014-09-29", endd: "2015-01-29" },
+      { id: 12, name: 'Narco', status: "X", startd: "2014-09-29", endd: "2015-01-29" },
+      { id: 13, name: 'Bombasto', status: "X", startd: "2014-09-29", endd: "2015-01-29" },
+      { id: 14, name: 'Celeritas', status: "X", startd: "2014-09-29", endd: "2015-01-29" },
+      { id: 15, name: 'Magneta', status: "X", startd: "2014-09-29", endd: "2015-01-29" },
+      { id: 16, name: 'RubberMan', status: "X", startd: "2014-09-29", endd: "2015-01-29" },
+      { id: 17, name: 'Dynama', status: "X", startd: "2014-09-29", endd: "2015-01-29" },
+      { id: 18, name: 'Dr IQ', status: "X", startd: "2014-09-29", endd: "2015-01-29" },
+      { id: 19, name: 'Magma', status: "X", startd: "2014-09-29", endd: "2015-01-29" },
+      { id: 20, name: 'Tornado', status: "X", startd: "2014-09-29", endd: "2015-01-29" }
     ];
     return {users};
   }
+
+
 
   // Overrides the genId method to ensure that a hero always has an id.
   // If the heroes array is empty,

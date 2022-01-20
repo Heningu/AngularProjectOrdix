@@ -9,17 +9,12 @@ import { UserService } from "../user.service";
 })
 export class HomeComponent implements OnInit {
   users: Template[] = [];
-  list = ['Project ORDIX']
+  list = ['Project ORDIX'] // Name für Typewriter
 
 
-  constructor(private userService: UserService) { }
-
-  ngOnInit(): void {
-    this.getUsers();
+  constructor(private userService: UserService) {
   }
 
-  getUsers(): void {
-    this.userService.getUsers()
-      .subscribe(users => this.users = users.slice(1, 5));
+  ngOnInit(): void {
   }
 }
