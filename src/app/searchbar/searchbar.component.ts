@@ -1,15 +1,36 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
+import { Template } from "../template";
+import { UserService } from "../user.service";
 
 @Component({
   selector: 'app-searchbar',
   templateUrl: './searchbar.component.html',
-  styleUrls: ['./searchbar.component.css']
+  styleUrls: [ './searchbar.component.css' ]
 })
 export class SearchbarComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+  users$!: Observable<Template[]>;
+  private searchTerms = new Subject<string>();
+  // Push a search term into the observable stream.
+  search(term: string): void {
+    this.searchTerms.next(term);
   }
 
+  constructor(private heroService: UserService) {}
+
+
+
+  ngOnInit(): void {
+    this.users$ = this.searchTerms.pipe(
+      // wait 300ms after each keystroke before considering the term
+      debounceTime(300),
+
+      // ignore new term if same as previous term
+      distinctUntilChanged(),
+
+      // switch to new search observable each time the term changes
+      switchMap((term: string) => this.heroService.searchUser(term)),
+    );
+  }
 }

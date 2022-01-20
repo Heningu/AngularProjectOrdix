@@ -1,1 +1,40 @@
-<p>list-details works!</p>
+<div *ngIf="user">
+
+  <h2 align="center">Details of < {{user.name}} ></h2>
+
+<div class="container">
+
+  <div class="table">
+    <div class="table-header">
+      <div class="hitem"><a id="id">ID</a></div>
+      <div class="hitem"><a id="name">Name</a></div>
+      <div class="hitem"><a id="status">Status</a></div>
+      <div class="hitem"><a id="startd">Start-Datum</a></div>
+      <div class="hitem"><a id="endd">End-Datum</a></div>
+
+    </div>
+    <div class="table-content">
+      <div class="table-row">
+        <div class="table-data"><a>{{user.id}}</a></div>
+        <div class="table-data"><a>{{user.name}}</a></div>
+        <div class="table-data"><a>{{user.status}}</a></div>
+        <div class="table-data"><a>{{user.startd}}</a></div>
+        <div class="table-data"><a>{{user.startd}}</a></div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+  <div><span>ID: </span>{{user.id}}</div>
+  <div>
+    <label for="hero-name">Hero name: </label>
+    <input id="hero-name" [(ngModel)]="user.name"
+           placeholder="name">
+  </div>
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
+</div>
+-->

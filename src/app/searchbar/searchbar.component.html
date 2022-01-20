@@ -1,1 +1,11 @@
-<p>searchbar works!</p>
+<div id="search-component">
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" placeholder="Search for Users" />
+
+  <ul class="search-result">
+    <li *ngFor="let user of users$ | async" >
+      <a routerLink="/nr/{{user.id}}">
+        {{user.name}}
+      </a>
+    </li>
+  </ul>
+</div>
