@@ -13,7 +13,7 @@ export class SearchbarComponent implements OnInit {
   users$!: Observable<Template[]>;
   private searchTerms = new Subject<string>();
   // Push a search term into the observable stream.
-  search(term: string ): void {                         // | term: number ?? Wie suche ich nach einer ID in der Suchbar mit der search Funktion?
+  search(term: string): void {                         // | term: number ?? Wie suche ich nach einer ID in der Suchbar mit der search Funktion? NYG
     this.searchTerms.next(term);
   }
 

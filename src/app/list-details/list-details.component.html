@@ -1,43 +1,45 @@
-<div *ngIf="user" >      <!-- Nutzt den user der aus der URL gezogen wird | in der .ts Datei festgelegt -->
+<div *ngIf="user$" >      <!-- Nutzt den user der aus der URL gezogen wird | in der .ts Datei festgelegt -->
 
-<div class="container">     <!-- Beginn der Tabelle | .container zentriert die Tabelle in der Mitte des Screens -->
+  <div class="container" *ngFor="let users of user$">     <!-- Beginn der Tabelle | .container zentriert die Tabelle in der Mitte des Screens -->
 
-  <div class="typewriter">
-    <h1 align="center">Details of < {{user.name}} ></h1>
-  </div>
-
-  <div class="table">
-
-    <div class="table-header">
-      <div class="hitem"><a id="id">ID</a></div>
-      <div class="hitem"><a id="name">Name</a></div>
-      <div class="hitem"><a id="status">Status</a></div>
-      <div class="hitem"><a id="startd">Start-Datum</a></div>
-      <div class="hitem"><a id="endd">End-Datum</a></div>
-
+    <div class="typewriter">
+      <h1 align="center">Details of < {{users.prj_name}} ></h1>
     </div>
-    <div class="table-content">
-      <div class="table-row">
-        <div class="table-data"><a>{{user.id}}</a></div>
-        <div class="table-data"><a>{{user.name}}</a></div>
-        <div class="table-data"><a>{{user.status}}</a></div>
-        <div class="table-data"><a>{{user.startd}}</a></div>
-        <div class="table-data"><a>{{user.endd}}</a></div>
+
+    <div class="table">
+
+      <div class="table-header">
+        <div class="hitem"><a id="id">ID</a></div>
+        <div class="hitem"><a id="name">Name</a></div>
+        <div class="hitem"><a id="status">Status</a></div>
+        <div class="hitem"><a id="startd">Start-Datum</a></div>
+        <div class="hitem"><a id="endd">End-Datum</a></div>
+
+      </div>
+      <div class="table-content">
+        <div class="table-row">
+          <div class="table-data"><a>{{users.prj_nr}}</a></div>
+          <div class="table-data"><a>{{users.prj_name}}</a></div>
+          <div class="table-data"><a>{{users.prj_status}}</a></div>
+          <div class="table-data"><a>{{users.prj_anfang}}</a></div>
+          <div class="table-data"><a>{{users.prj_ende}}</a></div>
 
 
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!--
-  <div><span>ID: </span>{{user.id}}</div>
-  <div>
-    <label for="hero-name">Hero name: </label>
-    <input id="hero-name" [(ngModel)]="user.name"
-           placeholder="name">
+  <!--
+    <div><span>ID: </span>{{user.id}}</div>
+    <div>
+      <label for="hero-name">Hero name: </label>
+      <input id="hero-name" [(ngModel)]="user.name"
+             placeholder="name">
+    </div>
+    <button (click)="goBack()">go back</button>
+    <button (click)="save()">save</button>
   </div>
-  <button (click)="goBack()">go back</button>
-  <button (click)="save()">save</button>
-</div>
--->
+  -->
+
+

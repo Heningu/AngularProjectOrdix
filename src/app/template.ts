@@ -1,7 +1,7 @@
 export interface Template {
-  id: number;
-  name: string;
-  status: string;
-  startd: string | Date;
-  endd: string | Date;
+  prj_nr: number;
+  prj_name: string;
+  prj_status: string;
+  prj_anfang: string | Date;
+  prj_ende: string | Date;
 }

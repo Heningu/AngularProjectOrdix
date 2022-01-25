@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Template } from "./template";
-import { USERS } from './testusers';
 import { Observable, of } from 'rxjs';
 import { NotificationsService } from "./notifications.service";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
-@Injectable({providedIn: 'root',})
+@Injectable({providedIn: 'root'})
 export class UserService {
 
-  private userUrl = 'api/users';  // URL to web api !!!!
+  private userUrl = 'http://127.0.0.1:8000/REST-Endpunkt/projekte/';  // URL to web api !!!!
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -23,11 +22,12 @@ export class UserService {
     );
   }
   // 404 with no user
-  getUser(id: number): Observable<Template> {
-    const url = `${this.userUrl}/${id}`;
-    return this.http.get<Template>(url).pipe(
-      tap(_ => this.log(`fetched the user id=${id}`)),
-      catchError(this.handleError<Template>(`getUser id=${id}`))
+  getUser(prj_nr: number): Observable<Template[]> {
+    const url = `${this.userUrl}nr/${prj_nr}`;
+   // console.log(prj_nr)
+    return this.http.get<Template[]>(url).pipe(
+      tap(_ => this.log(`fetched prj_nr=${prj_nr}`)),
+      catchError(this.handleError<Template[]>(`getUser prj_nr=${prj_nr}`))
     );
   }
 
@@ -41,16 +41,16 @@ export class UserService {
   // Unnötiger Code, kann entfernt werden
   addUser(user: Template): Observable<Template> {
     return this.http.post<Template>(this.userUrl, user, this.httpOptions).pipe(
-      tap((newUser: Template) => this.log(`added hero w/ id=${newUser.id}`)),
+      tap((newUser: Template) => this.log(`added hero w/ prj_nr=${newUser.prj_nr}`)),
       catchError(this.handleError<Template>('addHero'))
     );
   }
   // Unnötiger Code, kann entfernt werden
-  deleteUser(id: number): Observable<Template> {
-    const url = `${this.userUrl}/${id}`;
+  deleteUser(prj_nr: number): Observable<Template> {
+    const url = `${this.userUrl}/${prj_nr}`;
 
     return this.http.delete<Template>(url, this.httpOptions).pipe(
-      tap(_ => this.log(`deleted hero id=${id}`)),
+      tap(_ => this.log(`deleted hero prj_nr=${prj_nr}`)),
       catchError(this.handleError<Template>('deleteHero'))
     );
   }
@@ -76,7 +76,7 @@ export class UserService {
   // Unnötiger Code, kann entfernt werden
   updateUser(user: Template): Observable<any> {
     return this.http.put(this.userUrl, user, this.httpOptions).pipe(
-      tap(_ => this.log(`updated hero id=${user.id}`)),
+      tap(_ => this.log(`updated hero prj_nr=${user.prj_nr}`)),
       catchError(this.handleError<any>('updateHero'))
     );
   }
@@ -100,5 +100,3 @@ export class UserService {
     this.notificationService.add(`HeroService: ${message}`);
   }
 }
-
-

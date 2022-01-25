@@ -10,7 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
+//import { InMemoryDataService } from './in-memory-data.service';
 import { AngularTypewriterEffectModule } from 'angular-typewriter-effect';
 
 
@@ -32,9 +32,9 @@ import { AngularTypewriterEffectModule } from 'angular-typewriter-effect';
     HttpClientModule,
     AngularTypewriterEffectModule,
 
-    HttpClientInMemoryWebApiModule.forRoot(
+    /*HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    )*/
   ],
   providers: [],
   bootstrap: [AppComponent]
