@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Template } from "../template";
 import { UserService } from "../user.service";
 
-
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -11,7 +10,9 @@ import { UserService } from "../user.service";
 export class ListComponent implements OnInit {
   users: Template[] = [];       // nutzt das Template als Vorlage für das Array
 
-  constructor(private userService: UserService) { }
+  dataforExcel = [];
+
+  constructor(private userService: UserService ) { }
   ngOnInit(): void {
     this.getUsers();      // Holt alle user
   }
@@ -20,6 +21,9 @@ export class ListComponent implements OnInit {
     this.userService.getUsers()
       .subscribe(users => this.users = users);
   }
+
+
+
  /* add(name: string): void {
     name = name.trim();
     if (!name) { return; }
